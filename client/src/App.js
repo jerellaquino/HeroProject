@@ -6,7 +6,7 @@ import Heroes from "./components/Heroes";
 function App() {
   return (
     <div className="App">
-      <Heroes />
+      <Homepage />
     </div>
   );
 }
