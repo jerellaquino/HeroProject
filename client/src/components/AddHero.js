@@ -52,25 +52,9 @@ export default class AddHero extends Component {
     };
     console.log({ hero });
 
-    heroCalls
-      .addHero(
-        { hero }
-        /*
-        hero.name,
-        hero.hero_name,
-        hero.age,
-        hero.gender,
-        hero.img,
-        hero.description,
-        hero.strength,
-        hero.speed,
-        hero.hp,
-        hero.abilities
-        */
-      )
-      .then((data) => {
-        console.log(data);
-      });
+    heroCalls.addHero({ hero }).then((data) => {
+      console.log(data);
+    });
   };
 
   render() {
