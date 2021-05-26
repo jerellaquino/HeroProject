@@ -54,6 +54,8 @@ export default class AddHero extends Component {
 
     heroCalls
       .addHero(
+        { hero }
+        /*
         hero.name,
         hero.hero_name,
         hero.age,
@@ -64,6 +66,7 @@ export default class AddHero extends Component {
         hero.speed,
         hero.hp,
         hero.abilities
+        */
       )
       .then((data) => {
         console.log(data);
@@ -82,7 +85,7 @@ export default class AddHero extends Component {
           <input type="text" name="hero_name" onChange={this.handleChange} />
           <br />
           <label>Age:</label>
-          <input type="text" name="age" onChange={this.handleChange} />
+          <input type="number" name="age" onChange={this.handleChange} />
           <br />
           <label>Gender:</label>
           <input type="text" name="gender" onChange={this.handleChange} />
@@ -97,29 +100,31 @@ export default class AddHero extends Component {
           <TextField
             id="filled-multiline-flexible"
             label="Description"
+            name="description"
+            type="text"
             multiline
             rowsMax={4}
-            onChange={this.handleChange}
             variant="filled"
+            onChange={this.handleChange}
           />
           <br />
           <label>Attributes</label>
           <input
-            type="text"
+            type="number"
             placeholder="Strength"
             name="strength"
             onChange={this.handleChange}
           />
           <br />
           <input
-            type="text"
+            type="number"
             placeholder="Speed"
             name="speed"
             onChange={this.handleChange}
           />
           <br />
           <input
-            type="text"
+            type="number"
             placeholder="HP"
             name="hp"
             onChange={this.handleChange}

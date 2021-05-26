@@ -20,6 +20,7 @@ class heroCalls {
   }
 
   static addHero(
+    { hero } /*
     Name,
     Hero_name,
     Age,
@@ -30,23 +31,38 @@ class heroCalls {
     Speed,
     Hp,
     Abilities
+    */
   ) {
     return new Promise((resolve, reject) => {
       axios({
         method: "POST",
         url: "http://localhost:3001/heroes", //URL hard coded
-        hero: {
-          name: Name,
-          hero_name: Hero_name,
-          age: Age,
-          gender: Gender,
-          img: Img,
-          description: Description,
-          strength: Strength,
-          speed: Speed,
-          hp: Hp,
-          abilities: Abilities,
+        data: {
+          name: hero.name,
+          hero_name: hero.hero_name,
+          age: hero.age,
+          gender: hero.gender,
+          img: hero.img,
+          description: hero.description,
+          strength: hero.strength,
+          speed: hero.speed,
+          hp: hero.hp,
+          abilities: hero.abilities,
         },
+        /*
+        hero: {
+          name: hero.name,
+          hero_name: hero.hero_name,
+          age: hero.age,
+          gender: hero.gender,
+          img: hero.img,
+          description: hero.description,
+          strength: hero.strength,
+          speed: hero.speed,
+          hp: hero.hp,
+          abilities: hero.abilities,          
+        },
+        */
       })
         .then((response) => {
           console.log(response);
