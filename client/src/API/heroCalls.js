@@ -48,6 +48,24 @@ class heroCalls {
     });
   }
 
+  static editHero(heroId, updatePackage) {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: "PATCH",
+        url: `http://localhost:3001/heroes/${heroId}`, //URL hard coded
+        data: updatePackage,
+      })
+        .then((response) => {
+          console.log(response);
+          resolve(response);
+        })
+        .catch((err) => {
+          reject(err);
+          console.log(err);
+        });
+    });
+  }
+
   static deleteHero(heroId) {
     return new Promise((resolve, reject) => {
       axios({

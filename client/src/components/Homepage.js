@@ -13,6 +13,7 @@ import {
   Redirect,
   Link,
 } from "react-router-dom";
+import EditHero from "./EditHero";
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class Homepage extends Component {
           <Route path="/heroes" component={Heroes} />
           <Route path="/addhero" component={AddHero} />
           <Route path="/deletehero" component={DeleteHero} />
+          <Route path="/edithero" component={EditHero} />
           <Link to="/heroes">
             <Button color="primary" variant="outlined">
               View All Heroes
@@ -38,9 +40,11 @@ export default class Homepage extends Component {
               Add Hero
             </Button>
           </Link>
-          <Button color="primary" variant="outlined">
-            Edit Hero
-          </Button>
+          <Link to="/edithero">
+            <Button color="primary" variant="outlined">
+              Edit Hero
+            </Button>
+          </Link>
           <Link to="/deletehero">
             <Button color="secondary" variant="outlined">
               Delete Hero
