@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Heroes from "./Heroes";
 import AddHero from "./AddHero";
+import DeleteHero from "./DeleteHero";
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,6 +27,7 @@ export default class Homepage extends Component {
         <Router>
           <Route path="/heroes" component={Heroes} />
           <Route path="/addhero" component={AddHero} />
+          <Route path="/deletehero" component={DeleteHero} />
           <Link to="/heroes">
             <Button color="primary" variant="outlined">
               View All Heroes
@@ -33,12 +35,17 @@ export default class Homepage extends Component {
           </Link>
           <Link to="/addhero">
             <Button color="secondary" variant="outlined">
-              Add a Hero
+              Add Hero
             </Button>
           </Link>
-          <Button color="" variant="outlined">
-            Edit a Hero
+          <Button color="primary" variant="outlined">
+            Edit Hero
           </Button>
+          <Link to="/deletehero">
+            <Button color="secondary" variant="outlined">
+              Delete Hero
+            </Button>
+          </Link>
         </Router>
       </div>
     );
