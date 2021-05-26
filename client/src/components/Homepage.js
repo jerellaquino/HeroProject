@@ -50,6 +50,12 @@ export default class Homepage extends Component {
               Delete Hero
             </Button>
           </Link>
+          <br />
+          <Link to="/">
+            <Button color="" variant="outlined">
+              Home
+            </Button>
+          </Link>
         </Router>
       </div>
     );
