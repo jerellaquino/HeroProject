@@ -39,6 +39,8 @@ export default class EditHero extends Component {
       [this.state.param]: this.state.edit,
     };
 
+    console.log(payload);
+
     heroCalls.editHero(this.state.heroId, payload).then((data) => {
       console.log(data);
     });

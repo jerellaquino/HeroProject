@@ -51,9 +51,9 @@ class heroCalls {
   static editHero(heroId, payload) {
     return new Promise((resolve, reject) => {
       axios({
-        method: "PATCH",
+        method: "PUT",
         url: `http://localhost:3001/heroes/${heroId}`, //URL hard coded
-        data: payload,
+        data: { payload },
       })
         .then((response) => {
           console.log(response);

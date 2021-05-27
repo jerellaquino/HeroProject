@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
 });
 
 //UPDATE
-/*
+
 router.put("/:heroId", async (req, res) => {
   try {
     const updateHero = await Hero.findByIdAndUpdate(
@@ -60,7 +60,7 @@ router.put("/:heroId", async (req, res) => {
     res.json({ message: err });
   }
 });
-*/
+/*
 router.patch("/:heroId", async (req, res) => {
   try {
     const updateHero = await Hero.updateOne(
@@ -72,6 +72,7 @@ router.patch("/:heroId", async (req, res) => {
     res.json({ message: err });
   }
 });
+*/
 
 //DELETE HERO
 router.delete("/:heroId", async (req, res) => {
