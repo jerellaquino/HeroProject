@@ -3,9 +3,14 @@ import heroCalls from "../API/heroCalls";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import SearchBar from "material-ui-search-bar";
 import Heroes from "./Heroes";
 import AddHero from "./AddHero";
 import DeleteHero from "./DeleteHero";
+import EditHero from "./EditHero";
+import FindHero from "./FindHero";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +18,6 @@ import {
   Redirect,
   Link,
 } from "react-router-dom";
-import EditHero from "./EditHero";
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -24,12 +28,23 @@ export default class Homepage extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Superhero Database!</h1>
+        <AppBar position="relative">
+          <Toolbar>
+            <Typography variant="h6" color="inherit" noWrap>
+              Favorite Superheroes Database
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <h1>My Favorite Superheroes!</h1>
+        <br />
+        <FindHero />
+        <br />
         <Router>
           <Route path="/heroes" component={Heroes} />
           <Route path="/addhero" component={AddHero} />
           <Route path="/deletehero" component={DeleteHero} />
           <Route path="/edithero" component={EditHero} />
+          <Route path="/heroes/findhero" component={FindHero} />
           <Link to="/heroes">
             <Button color="primary" variant="outlined">
               View All Heroes

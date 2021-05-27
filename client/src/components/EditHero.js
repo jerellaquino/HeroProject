@@ -4,7 +4,12 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Homepage from "./Homepage";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,7 +22,7 @@ export default class EditHero extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      heroId: 0,
+      heroId: "",
       param: "",
       edit: "",
     };
@@ -30,11 +35,11 @@ export default class EditHero extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const updatePackage = {
+    const payload = {
       [this.state.param]: this.state.edit,
     };
 
-    heroCalls.editHero(this.state.heroId, updatePackage).then((data) => {
+    heroCalls.editHero(this.state.heroId, payload).then((data) => {
       console.log(data);
     });
   };
@@ -53,16 +58,26 @@ export default class EditHero extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <TextField
-            id="filled-multiline-flexible"
-            label="Paramter to change"
+          <br />
+          <InputLabel>What to Change</InputLabel>
+          <Select
+            autoWidth
+            id="param"
             name="param"
-            type="text"
-            multiline
-            rowsMax={4}
-            variant="filled"
             onChange={this.handleChange}
-          />
+          >
+            <MenuItem value="name">Name</MenuItem>
+            <MenuItem value="hero_name">Hero Name</MenuItem>
+            <MenuItem value="age">Age</MenuItem>
+            <MenuItem value="gender">Gender</MenuItem>
+            <MenuItem value="img">Image Link</MenuItem>
+            <MenuItem value="description">Description</MenuItem>
+            <MenuItem value="strength">Strength</MenuItem>
+            <MenuItem value="speed">Speed</MenuItem>
+            <MenuItem value="hp">HP</MenuItem>
+            <MenuItem value="abilities">Abilities</MenuItem>
+          </Select>
+          <br />
           <br />
           <TextField
             id="filled-multiline-flexible"
@@ -75,10 +90,13 @@ export default class EditHero extends Component {
             onChange={this.handleChange}
           />
           <br />
+          <br />
           <Button variant="outlined" onClick={this.handleSubmit}>
             Submit the Edit
           </Button>
+          <br />
         </form>
+        <br />
       </div>
     );
   }

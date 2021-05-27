@@ -45,6 +45,22 @@ router.post("/", async (req, res) => {
 });
 
 //UPDATE
+/*
+router.put("/:heroId", async (req, res) => {
+  try {
+    const updateHero = await Hero.findByIdAndUpdate(
+      req.params.heroId,
+      { ...req.body.payload },
+      {
+        new: true,
+      }
+    );
+    res.json(updateHero);
+  } catch {
+    res.json({ message: err });
+  }
+});
+*/
 router.patch("/:heroId", async (req, res) => {
   try {
     const updateHero = await Hero.updateOne(
