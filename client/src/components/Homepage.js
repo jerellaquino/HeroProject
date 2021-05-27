@@ -27,20 +27,36 @@ export default class Homepage extends Component {
   }
 
   render() {
+    const homeStyle = {
+      color: "white",
+      padding: "10px",
+      marginLeft: "20px",
+    };
+
+    const buttonSpacing = {
+      padding: "10px",
+      marginLeft: "20px",
+    };
+
     return (
       <div className="App">
         <Router>
-          <AppBar position="static">
+          <AppBar position="fixed">
             <Toolbar>
               <Typography variant="h6" color="inherit" noWrap>
                 Favorite Superheroes Database
               </Typography>
               <Link to="/">
-                <Button color="default">Home</Button>
+                <Button style={homeStyle} variant="outlined">
+                  Home / Clear Page
+                </Button>
               </Link>
             </Toolbar>
           </AppBar>
-          <h1>My Favorite Superheroes!</h1>
+          <br />
+          <br />
+          <br />
+          <h1 color="secondary">My Favorite Superheroes!</h1>
           <br />
           <Route path="/findhero" component={FindHero} />
           <Link to="/findhero">
@@ -55,31 +71,27 @@ export default class Homepage extends Component {
           <Route path="/deletehero" component={DeleteHero} />
           <Route path="/edithero" component={EditHero} />
           <Link to="/heroes">
-            <Button color="primary" variant="outlined">
+            <Button style={buttonSpacing} color="primary" variant="outlined">
               View All Heroes
             </Button>
           </Link>
           <Link to="/addhero">
-            <Button color="secondary" variant="outlined">
+            <Button style={buttonSpacing} color="secondary" variant="outlined">
               Add Hero
             </Button>
           </Link>
           <Link to="/edithero">
-            <Button color="primary" variant="outlined">
+            <Button style={buttonSpacing} color="primary" variant="outlined">
               Edit Hero
             </Button>
           </Link>
           <Link to="/deletehero">
-            <Button color="secondary" variant="outlined">
+            <Button style={buttonSpacing} color="secondary" variant="outlined">
               Delete Hero
             </Button>
           </Link>
           <br />
-          <Link to="/">
-            <Button color="" variant="outlined">
-              Home
-            </Button>
-          </Link>
+          <br />
         </Router>
       </div>
     );
