@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import heroCalls from "../API/heroCalls";
+import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -7,7 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import SearchBar from "material-ui-search-bar";
+import Grid from "@material-ui/core/Grid";
 import Homepage from "./Homepage";
 import EditHero from "./EditHero";
 import {
@@ -45,31 +46,43 @@ export default class FindHero extends Component {
   viewHero = () => {
     return (
       <div>
-        <Card>
-          <CardMedia
-            image={this.state.data.img}
-            alt="hero image"
-            width="200"
-            height="200"
-            title="Image title"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {this.state.data.hero_name}
-            </Typography>
-            <Typography>
-              <li>Name = {this.state.data.name}</li>
-              <li>Description = {this.state.data.description}</li>
-              <li>Age = {this.state.data.age}</li>
-              <li>Gender = {this.state.data.gender}</li>
-              <li>Strength = {this.state.data.strength}</li>
-              <li>Speed = {this.state.data.speed} </li>
-              <li>HP = {this.state.data.hp} </li>
-              <li>Abilities = {this.state.data.abilities}</li>
-              <li>ID = {this.state.data._id} </li>
-            </Typography>
-          </CardContent>
-        </Card>
+        <Container maxWidth="md">
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+          >
+            <Card>
+              <CardMedia
+                component="img"
+                image={this.state.data.img}
+                alt="hero image"
+                width="200"
+                height="200"
+                title="Image title"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {this.state.data.hero_name}
+                </Typography>
+                <Typography>
+                  <li>Name = {this.state.data.name}</li>
+                  <li>Description = {this.state.data.description}</li>
+                  <li>Age = {this.state.data.age}</li>
+                  <li>Gender = {this.state.data.gender}</li>
+                  <li>Strength = {this.state.data.strength}</li>
+                  <li>Speed = {this.state.data.speed} </li>
+                  <li>HP = {this.state.data.hp} </li>
+                  <li>Abilities = {this.state.data.abilities}</li>
+                  <li>ID = {this.state.data._id} </li>
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Container>
+        <br />
       </div>
     );
   };
