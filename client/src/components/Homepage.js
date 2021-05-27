@@ -27,8 +27,9 @@ export default class Homepage extends Component {
   }
 
   render() {
-    const homeStyle = {
+    const homeButtonStyle = {
       color: "white",
+      backgroundColor: "Crimson",
       padding: "10px",
       marginLeft: "20px",
     };
@@ -47,7 +48,7 @@ export default class Homepage extends Component {
                 Favorite Superheroes Database
               </Typography>
               <Link to="/">
-                <Button style={homeStyle} variant="outlined">
+                <Button style={homeButtonStyle} variant="outlined">
                   Home / Clear Page
                 </Button>
               </Link>

@@ -34,6 +34,11 @@ export default class DeleteHero extends Component {
   };
 
   render() {
+    const buttonSpacing = {
+      padding: "10px",
+      marginLeft: "20px",
+    };
+
     return (
       <div className="App">
         <h1>Delete a Hero</h1>
@@ -45,7 +50,11 @@ export default class DeleteHero extends Component {
             variant="outlined"
             onChange={this.handleChange}
           />
-          <Button variant="outlined" onClick={this.handleSubmit}>
+          <Button
+            style={buttonSpacing}
+            variant="outlined"
+            onClick={this.handleSubmit}
+          >
             Submit
           </Button>
         </form>

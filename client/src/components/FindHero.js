@@ -75,6 +75,11 @@ export default class FindHero extends Component {
   };
 
   render() {
+    const buttonSpacing = {
+      padding: "10px",
+      marginLeft: "20px",
+    };
+
     return (
       <div>
         <form className="flex-container">
@@ -85,7 +90,11 @@ export default class FindHero extends Component {
             variant="outlined"
             onChange={this.handleChange}
           />
-          <Button variant="outlined" onClick={this.handleSubmit}>
+          <Button
+            style={buttonSpacing}
+            variant="outlined"
+            onClick={this.handleSubmit}
+          >
             Search
           </Button>
         </form>
