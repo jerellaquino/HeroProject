@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
+import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Homepage from "./Homepage";
@@ -36,45 +37,49 @@ export default class Heroes extends Component {
     return (
       <div className="App">
         <h1>All Heroes</h1>
-        {this.state.heroes.map((data) => {
-          return (
-            <div>
-              <Card>
-                <CardMedia
-                  image={data.img}
-                  alt="hero image"
-                  width="200"
-                  height="200"
-                  title="Image title"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {data.hero_name}
-                  </Typography>
-                  <Typography>
-                    <li>Name = {data.name}</li>
-                    <li>Description = {data.description}</li>
-                    <li>Age = {data.age}</li>
-                    <li>Gender = {data.gender}</li>
-                    <li>Strength = {data.strength}</li>
-                    <li>Speed = {data.speed} </li>
-                    <li>HP = {data.hp} </li>
-                    <li>Abilities = {data.abilities}</li>
-                    <li>ID = {data._id} </li>
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" color="primary">
-                    View
-                  </Button>
-                  <Button size="small" color="primary">
-                    Edit
-                  </Button>
-                </CardActions>
-              </Card>
-            </div>
-          );
-        })}
+        <Grid container spacing={4}>
+          {this.state.heroes.map((data) => {
+            return (
+              <Grid item xs={12} sm={6} md={4}>
+                <div>
+                  <Card>
+                    <CardMedia
+                      image={data.img}
+                      alt="hero image"
+                      width="200"
+                      height="200"
+                      title="Image title"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {data.hero_name}
+                      </Typography>
+                      <Typography>
+                        <li>Name = {data.name}</li>
+                        <li>Description = {data.description}</li>
+                        <li>Age = {data.age}</li>
+                        <li>Gender = {data.gender}</li>
+                        <li>Strength = {data.strength}</li>
+                        <li>Speed = {data.speed} </li>
+                        <li>HP = {data.hp} </li>
+                        <li>Abilities = {data.abilities}</li>
+                        <li>ID = {data._id} </li>
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size="small" color="primary">
+                        View
+                      </Button>
+                      <Button size="small" color="primary">
+                        Edit
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </div>
+              </Grid>
+            );
+          })}
+        </Grid>
       </div>
     );
   }

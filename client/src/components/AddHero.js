@@ -4,7 +4,6 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Homepage from "./Homepage";
 import {
   BrowserRouter as Router,
   Switch,
@@ -57,29 +56,54 @@ export default class AddHero extends Component {
     });
   };
 
+  confirmSubmit = () => {
+    return <h2>Hero Added!</h2>;
+  };
+
   render() {
     return (
       <div className="App">
-        <h1>Add</h1>
+        <h1>Add a Hero</h1>
         <form className="flex-container" onSubmit={this.handleSubmit}>
-          <label>Name:</label>
-          <input type="text" name="name" onChange={this.handleChange} />
-          <br />
-          <label>Hero Name:</label>
-          <input type="text" name="hero_name" onChange={this.handleChange} />
-          <br />
-          <label>Age:</label>
-          <input type="number" name="age" onChange={this.handleChange} />
-          <br />
-          <label>Gender:</label>
-          <input type="text" name="gender" onChange={this.handleChange} />
-          <br />
-          <label>Image URL:</label>
-          <input
-            placeholder="optional"
-            name="img"
+          <TextField
+            label="Name"
+            name="name"
+            type="text"
             onChange={this.handleChange}
-          />{" "}
+          />
+          <br />
+          <br />
+          <TextField
+            label="Superhero Name"
+            name="hero_name"
+            type="text"
+            onChange={this.handleChange}
+          />
+          <br />
+          <br />
+          <TextField
+            label="Age"
+            name="age"
+            type="number"
+            onChange={this.handleChange}
+          />
+          <br />
+          <br />
+          <TextField
+            label="Gender"
+            name="gender"
+            type="text"
+            onChange={this.handleChange}
+          />
+          <br />
+          <br />
+          <TextField
+            label="Image URL"
+            name="img"
+            type="text"
+            onChange={this.handleChange}
+          />
+          <br />
           <br />
           <TextField
             id="filled-multiline-flexible"
@@ -88,42 +112,50 @@ export default class AddHero extends Component {
             type="text"
             multiline
             rowsMax={4}
-            variant="filled"
+            variant="outlined"
             onChange={this.handleChange}
           />
           <br />
-          <label>Attributes</label>
-          <input
-            type="number"
-            placeholder="Strength"
+          <h3>Hero Attributes:</h3>
+          <TextField
+            label="Strength"
             name="strength"
+            type="number"
             onChange={this.handleChange}
           />
           <br />
-          <input
-            type="number"
-            placeholder="Speed"
+          <br />
+          <TextField
+            label="Speed"
             name="speed"
-            onChange={this.handleChange}
-          />
-          <br />
-          <input
             type="number"
-            placeholder="HP"
-            name="hp"
             onChange={this.handleChange}
           />
           <br />
-          <input
-            type="text"
-            placeholder="Abilities"
-            name="abilities"
+          <br />
+          <TextField
+            label="HP"
+            name="hp"
+            type="number"
             onChange={this.handleChange}
           />
+          <br />
+          <br />
+          <TextField
+            label="Abilities"
+            name="abilities"
+            type="text"
+            onChange={this.handleChange}
+          />
+          <br />
+          <br />
           <br />
           <Button type="submit" variant="outlined">
             Submit to Database
           </Button>
+          <br />
+          <br />
+          {this.handleSubmit && this.confirmSubmit}
         </form>
       </div>
     );

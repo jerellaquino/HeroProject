@@ -65,7 +65,7 @@ router.patch("/:heroId", async (req, res) => {
   try {
     const updateHero = await Hero.updateOne(
       { _id: req.params.heroId },
-      { $set: { description: req.body.description } }
+      { $set: { img: req.body.img } }
     );
     res.json(updateHero);
   } catch {
