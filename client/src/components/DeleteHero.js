@@ -49,6 +49,7 @@ export default class DeleteHero extends Component {
             Submit
           </Button>
         </form>
+        <br />
       </div>
     );
   }

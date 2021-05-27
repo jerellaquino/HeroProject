@@ -85,15 +85,11 @@ export default class FindHero extends Component {
             variant="outlined"
             onChange={this.handleChange}
           />
-          <Router>
-            <Route path="/heroes/findhero" component={FindHero} />
-            <Link to="/heroes/findhero">
-              <Button variant="outlined" onClick={this.handleSubmit}>
-                Search
-              </Button>
-            </Link>
-          </Router>
+          <Button variant="outlined" onClick={this.handleSubmit}>
+            Search
+          </Button>
         </form>
+        <br />
         {this.state.data && this.viewHero()}
       </div>
     );
