@@ -68,6 +68,7 @@ export default class DeleteHero extends Component {
         </form>
         <br />
         {confirmation}
+        <br />
       </div>
     );
   }
