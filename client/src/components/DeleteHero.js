@@ -18,6 +18,7 @@ export default class DeleteHero extends Component {
     super(props);
     this.state = {
       heroId: 0,
+      buttonPushed: false,
     };
   }
 
@@ -28,6 +29,8 @@ export default class DeleteHero extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({ buttonPushed: true });
+
     heroCalls.deleteHero(this.state.heroId).then((data) => {
       console.log(data);
     });
@@ -38,6 +41,11 @@ export default class DeleteHero extends Component {
       padding: "10px",
       marginLeft: "20px",
     };
+
+    let confirmation = null;
+    if (this.state.buttonPushed) {
+      confirmation = <h3>Hero Removed!</h3>;
+    }
 
     return (
       <div className="App">
@@ -59,6 +67,7 @@ export default class DeleteHero extends Component {
           </Button>
         </form>
         <br />
+        {confirmation}
       </div>
     );
   }

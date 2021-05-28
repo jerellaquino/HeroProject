@@ -26,6 +26,7 @@ export default class AddHero extends Component {
       strength: 0,
       hp: 0,
       abilities: "",
+      buttonPushed: false,
     };
   }
 
@@ -36,6 +37,7 @@ export default class AddHero extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("submit successful");
+    this.setState({ buttonPushed: true });
 
     const hero = {
       name: this.state.name,
@@ -61,6 +63,10 @@ export default class AddHero extends Component {
   };
 
   render() {
+    let confirmation = null;
+    if (this.state.buttonPushed) {
+      confirmation = <h3>Hero Added!</h3>;
+    }
     return (
       <div className="App">
         <h1>Add a Hero</h1>
@@ -157,6 +163,9 @@ export default class AddHero extends Component {
           <br />
           {this.handleSubmit && this.confirmSubmit}
         </form>
+        <br />
+        {confirmation}
+        <br />
       </div>
     );
   }

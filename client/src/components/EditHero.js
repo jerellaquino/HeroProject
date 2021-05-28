@@ -25,6 +25,7 @@ export default class EditHero extends Component {
       heroId: "",
       param: "",
       edit: "",
+      buttonPushed: false,
     };
   }
 
@@ -34,6 +35,7 @@ export default class EditHero extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({ buttonPushed: true });
 
     const payload = {
       [this.state.param]: this.state.edit,
@@ -47,6 +49,10 @@ export default class EditHero extends Component {
   };
 
   render() {
+    let confirmation = null;
+    if (this.state.buttonPushed) {
+      confirmation = <h3>Edit Confirmed!</h3>;
+    }
     return (
       <div className="App">
         <h1>Edit a Hero</h1>
@@ -99,6 +105,7 @@ export default class EditHero extends Component {
           <br />
         </form>
         <br />
+        {confirmation}
       </div>
     );
   }

@@ -9,6 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import EditHero from "./EditHero";
 import Homepage from "./Homepage";
 import {
   BrowserRouter as Router,
@@ -69,12 +70,14 @@ export default class Heroes extends Component {
                         </Typography>
                       </CardContent>
                       <CardActions>
-                        <Button size="small" color="primary">
-                          View
-                        </Button>
-                        <Button size="small" color="primary">
-                          Edit
-                        </Button>
+                        <Router>
+                          <Route path="/edithero" component={EditHero} />
+                          <Link to="/edithero">
+                            <Button size="small" color="primary">
+                              Edit
+                            </Button>
+                          </Link>
+                        </Router>
                       </CardActions>
                     </Card>
                   </div>
@@ -83,6 +86,8 @@ export default class Heroes extends Component {
             })}
           </Grid>
         </Container>
+        <br />
+        <br />
       </div>
     );
   }
