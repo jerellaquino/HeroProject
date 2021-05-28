@@ -6,6 +6,9 @@ import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import CardMedia from "@material-ui/core/CardMedia";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 import SearchBar from "material-ui-search-bar";
 import Heroes from "./Heroes";
 import AddHero from "./AddHero";
@@ -58,6 +61,27 @@ export default class Homepage extends Component {
           <br />
           <br />
           <h1 color="secondary">My Favorite Superheroes!</h1>
+          <Container maxWidth="md">
+            <Grid
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justify="center"
+            >
+              <Card>
+                <CardMedia
+                  component="img"
+                  image="https://static.vecteezy.com/system/resources/previews/000/151/954/original/round-superhero-character-vector-icons.jpg"
+                  alt="hero image"
+                  width="200"
+                  height="200"
+                  title="Image title"
+                ></CardMedia>
+              </Card>
+            </Grid>
+          </Container>
+
           <br />
           <Route path="/findhero" component={FindHero} />
           <Link to="/findhero">
